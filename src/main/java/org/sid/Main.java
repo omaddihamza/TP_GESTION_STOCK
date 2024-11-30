@@ -32,23 +32,35 @@ public class Main {
                         System.out.println("----Modifier un produit----");
                         System.out.print("Code : ");
                         int code = scanner.nextInt();
-
-                        System.out.print("Nom : ");
+                        GestionStock.rechercherProduitParID(code);
+                        System.out.print("Nouveau Nom : ");
                         String nouveauNom = scanner.next();
 
-                        System.out.print("Quantité : ");
+                        System.out.print("Nouvelle Quantité : ");
                         int nouvelleQuantite = scanner.nextInt();
 
-                        System.out.print("Prix : ");
+                        System.out.print("Nouveau Prix : ");
                         double nouveauPrix = scanner.nextDouble();
                         GestionStock.modifierProduit(code, nouveauNom, nouvelleQuantite, nouveauPrix);
-                        System.out.println("Produit modifié avec succès.");
                         break;
                     case 3:
-                        System.out.println("-----Supprimer un produit------");
+                        boolean confirmation = false;
+                        System.out.println("----- Supprimer un produit ------");
                         System.out.print("Code : ");
                         code = scanner.nextInt();
-                        GestionStock.supprimerProduit(code);
+
+                         // Check if the product exists
+                        GestionStock.rechercherProduitParID(code);
+
+                        System.out.print("Êtes-vous sûr ? (true pour confirmer, false pour annuler) : ");
+                        confirmation = scanner.nextBoolean();
+
+                        if (confirmation) {
+                            GestionStock.supprimerProduit(code);
+                            System.out.println("Produit supprimé avec succès.");
+                        } else {
+                            System.out.println("Suppression annulée.");
+                        }
                         break;
                     case 4:
                         GestionStock.afficherProduits();
@@ -61,7 +73,7 @@ public class Main {
                         break;
                     case 6:
                         double total = GestionStock.calculerValeurStock();
-                        System.out.println("la valeur totale du stock." + total);
+                        System.out.println("la valeur totale du stock : " + total);
                         break;
                     case 0:
                         continuer = false;

@@ -2,7 +2,7 @@ package org.sid.model;
 
 public class Produit {
     private static int globalCode = 0;
-     private int code;
+    private int code;
     private String nom;
     private int quantite;
     private double prix;

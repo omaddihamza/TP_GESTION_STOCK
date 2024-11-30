@@ -27,6 +27,7 @@ public class GestionStock {
 
     /**
      * Ajoute un produit au stock si il y a encore de la place.
+     *
      * @param produit Le produit à ajouter
      */
     public static void ajouterProduit(Produit produit) {
@@ -45,23 +46,25 @@ public class GestionStock {
     public static void afficherProduits() {
         if (nombreDeProduits == 0) {
             System.out.println("Le stock est vide.");
-            return;
-        }
+        } else {
 
-        System.out.println("=== Liste des Produits ===");
-        for (int i = 0; i < nombreDeProduits; i++) {
-            if (produits[i] != null) {
-                System.out.println(produits[i]);
+            System.out.println("=== Liste des Produits ===");
+            for (int i = 0; i < nombreDeProduits; i++) {
+                if (produits[i] != null) {
+                    System.out.println(produits[i]);
+                }
             }
         }
+
     }
 
     /**
      * Modifie un produit existant dans le stock par son code.
-     * @param code Le code du produit à modifier
-     * @param nouveauNom Le nouveau nom du produit
+     *
+     * @param code             Le code du produit à modifier
+     * @param nouveauNom       Le nouveau nom du produit
      * @param nouvelleQuantite La nouvelle quantité du produit
-     * @param nouveauPrix Le nouveau prix du produit
+     * @param nouveauPrix      Le nouveau prix du produit
      */
     public static void modifierProduit(int code, String nouveauNom, int nouvelleQuantite, double nouveauPrix) {
         boolean produitModifie = false;
@@ -82,6 +85,7 @@ public class GestionStock {
 
     /**
      * Recherche un produit par son nom.
+     *
      * @param nom Le nom du produit à rechercher
      */
     public static void rechercherProduit(String nom) {
@@ -99,8 +103,23 @@ public class GestionStock {
         }
     }
 
+    public static void rechercherProduitParID(int code) {
+        boolean produitTrouve = false;
+        for (int i = 0; i < nombreDeProduits; i++) {
+            if (produits[i].getCode() == code) {
+                System.out.println(produits[i]);
+                produitTrouve = true;
+                break;
+            }
+        }
+        if (!produitTrouve) {
+            System.out.println("Produit non existant.");
+        }
+    }
+
     /**
      * Supprime un produit du stock par son code.
+     *
      * @param code Le code du produit à supprimer
      */
     public static void supprimerProduit(int code) {
@@ -120,6 +139,7 @@ public class GestionStock {
 
     /**
      * Calcule la valeur totale du stock en multipliant la quantité de chaque produit par son prix.
+     *
      * @return La valeur totale du stock
      */
     public static double calculerValeurStock() {
