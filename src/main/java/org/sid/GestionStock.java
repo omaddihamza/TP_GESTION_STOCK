@@ -99,7 +99,7 @@ public class GestionStock {
             }
         }
         if (!produitTrouve) {
-            System.out.println("Produit non existant.");
+           System.out.println("Produit non existant.");
         }
     }
 

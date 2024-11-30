@@ -32,6 +32,7 @@ public class Main {
                         System.out.println("----Modifier un produit----");
                         System.out.print("Code : ");
                         int code = scanner.nextInt();
+                        // Check if the product exists
                         GestionStock.rechercherProduitParID(code);
                         System.out.print("Nouveau Nom : ");
                         String nouveauNom = scanner.next();
@@ -57,7 +58,6 @@ public class Main {
 
                         if (confirmation) {
                             GestionStock.supprimerProduit(code);
-                            System.out.println("Produit supprimé avec succès.");
                         } else {
                             System.out.println("Suppression annulée.");
                         }
