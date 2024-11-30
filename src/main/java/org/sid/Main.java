@@ -27,7 +27,6 @@ public class Main {
 
                         Produit produit = new Produit(nom, quantite, prix);
                         GestionStock.ajouterProduit(produit);
-                        System.out.println("Produit ajouté avec succès.");
                         break;
                     case 2:
                         System.out.println("----Modifier un produit----");
