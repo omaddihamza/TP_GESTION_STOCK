@@ -21,7 +21,7 @@ public class GestionStock {
         System.out.println("4. Afficher  un produit");
         System.out.println("5. Rechercher un produit");
         System.out.println("6. Calculer la valeur total du stock");
-        System.out.println("7. Quitter");
+        System.out.println("0. Quitter");
         System.out.print("Choisissez une option : ");
     }
 
