@@ -16,13 +16,13 @@ public class Main {
                 switch (choix) {
                     case 1:
                         System.out.println("----Ajouter un produit----");
-                        System.out.print("Nom : ");
+                        System.out.print("Entrez le nom du produit : ");
                         String nom = scanner.next();
 
-                        System.out.print("Quantité : ");
+                        System.out.print("Entrez la quantité du produit : ");
                         int quantite = scanner.nextInt();
 
-                        System.out.print("Prix : ");
+                        System.out.print("Entrez le prix du produit: ");
                         double prix = scanner.nextDouble();
 
                         Produit produit = new Produit(nom, quantite, prix);
@@ -30,24 +30,24 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("----Modifier un produit----");
-                        System.out.print("Code : ");
+                        System.out.print("Entrez le code produit que vous souhaitez modifier: ");
                         int code = scanner.nextInt();
                         // Check if the product exists
                         GestionStock.rechercherProduitParID(code);
-                        System.out.print("Nouveau Nom : ");
+                        System.out.print("Entrez Nouveau Nom : ");
                         String nouveauNom = scanner.next();
 
-                        System.out.print("Nouvelle Quantité : ");
+                        System.out.print("Entrez Nouvelle Quantité : ");
                         int nouvelleQuantite = scanner.nextInt();
 
-                        System.out.print("Nouveau Prix : ");
+                        System.out.print("Entrez Nouveau Prix : ");
                         double nouveauPrix = scanner.nextDouble();
                         GestionStock.modifierProduit(code, nouveauNom, nouvelleQuantite, nouveauPrix);
                         break;
                     case 3:
                         boolean confirmation = false;
                         System.out.println("----- Supprimer un produit ------");
-                        System.out.print("Code : ");
+                        System.out.print("Entrez le code produit que vous souhaitez Supprimer : ");
                         code = scanner.nextInt();
 
                          // Check if the product exists
@@ -67,7 +67,7 @@ public class Main {
                         break;
                     case 5:
                         System.out.println("-----Rechercher un produit-----");
-                        System.out.print("Nom : ");
+                        System.out.print("Entrez le nom produit que vous souhaitez rechercher : ");
                         String nomProduct = scanner.next();
                         GestionStock.rechercherProduit(nomProduct);
                         break;
